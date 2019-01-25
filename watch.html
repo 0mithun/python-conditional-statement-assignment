@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+	<style>
+			#watch{
+			   width: 175px;margin: 0 auto;font-size: 30px;color: white;background: #000;padding: 20px;font-style: italic;
+			}
+			#watch:hover{
+				color:red
+			}
+	
+	</style>
+	
+</head>
+<body>
+    
+    <div id="watch" style=" "></div>
+
+
+    <script>
+        function watch(){
+            today = new Date();
+            hour = today.getHours();
+            minute = today.getMinutes();
+            seconds = today.getSeconds();
+			dim = 'AM';
+
+            if(hour >12){
+                hour = hour-12;
+				dim = 'PM';
+            }
+			
+			if(hour<10){
+				hour = '0' + hour;
+			}
+			
+			if(minute<10){
+				minute = '0' + minute;
+			}
+			
+			if(minute<10){
+				seconds = '0' + seconds;
+			}
+			
+            time = hour+ ":"+ minute + ":" +seconds + " " + dim;
+            document.getElementById("watch").innerHTML = time;
+        }
+        
+        setInterval(() => {
+            watch();
+        }, 1000);
+    </script>
+</body>
+</html>
